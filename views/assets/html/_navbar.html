@@ -1,0 +1,8 @@
+<div class="navbar-brand">
+    <img src="../png/logotype-knockout.png" class="d-inline-block align-middle" width="120" alt="MyLife logo">
+</div>
+<div class="navbar-nav">
+    <% menu.forEach(_menuItem => { %>
+        <a class="nav-link" href="<%= _menuItem.route %>"><%= _menuItem.display %></a>
+    <% }) %>
+</div>
