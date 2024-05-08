@@ -1,0 +1,54 @@
+{
+  "name": "mylife-maht",
+  "version": "1.0.0",
+  "description": "Maht is a tensorflow.js ai model trained on MyLife corporate private and public materials to assist the Board of Directors for MyLife in governance and growth of the organization in ethical, honest, transparent and impactful ways",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "dotenv -e .env nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyLife-Services/mylife-maht.git"
+  },
+  "keywords": [
+    "ai",
+    "governance",
+    "mylife",
+    "hrp",
+    "board",
+    "directors",
+    "executive",
+    "assistant",
+    "agent",
+    "maht"
+  ],
+  "author": "MyLife",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MyLife-Services/mylife-maht/issues"
+  },
+  "homepage": "https://github.com/MyLife-Services/mylife-maht#readme",
+  "dependencies": {
+    "@azure/cosmos": "^4.0.0",
+    "@azure/identity": "^4.0.0",
+    "ajv": "^8.12.0",
+    "axios": "^1.6.2",
+    "chalk": "^5.2.0",
+    "form-data": "^4.0.0",
+    "js-guid": "^1.0.2",
+    "koa": "^2.14.1",
+    "koa-body": "^6.0.1",
+    "koa-ejs": "^4.3.0",
+    "koa-generic-session": "^2.3.1",
+    "koa-router": "^12.0.0",
+    "koa-static": "^5.0.0",
+    "marked": "^10.0.0",
+    "openai": "^4.19.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.3.0",
+    "nodemon": "^2.0.22"
+  }
+}

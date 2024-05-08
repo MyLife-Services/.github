@@ -1,0 +1,46 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"$id": "https://maht.azurewebsites.net/inc/json-schemas/conversation.json",
+	"required": ["mbr_id", "parent_id", "being", "messages"],
+	"type": "object",
+	"name": "Conversation",
+	"properties": {
+		"id": {
+			"type": "string",
+			"format": "uuid"
+		},
+		"mbr_id": {
+			"type": "string",
+			"minLength": 40,
+			"$comment": "partition-key for member: sysName|core_id"
+		},
+		"parent_id": {
+			"type": "string",
+			"format": "uuid",
+			"$comment": "chat should be attached to avatar.id when known"
+		},
+		"being": {
+			"type": "string",
+			"const": "chat"
+		},
+		"messages": {
+			"type": "array",
+			"default": [], 
+			"items": {
+				"type": "object",
+				"$ref": "./message.json"
+			},
+			"$comment": "messages array, populated by unshift"
+		},
+		"name": {
+			"type": "string",
+			"maxLength": 128,
+			"$comment": "name of the conversation, used for display"
+		},
+		"thread": {
+			"type": "object",
+			"$comment": "openai thread id, used for tracking"
+		}
+	},
+	"additionalProperties": true
+}
