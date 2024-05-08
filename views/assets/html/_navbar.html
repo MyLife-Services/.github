@@ -1,0 +1,16 @@
+<div id="navigation-brand" class="navigation-brand">
+    <img src="../png/logotype-knockout.png" class="d-inline-block align-middle" width="120" alt="MyLife logo">
+</div>
+<div id="navigation-nav" class="navigation-nav">
+    <% menu.forEach(_menuItem => { %>
+        <a class="navigation-link" href="<%= _menuItem.route %>"><%= _menuItem.display %></a>
+    <% }) %>
+</div>
+<div id="navigation-padding" class="navigation-padding"></div>
+<div id="navigation-search" class="navigation-search"></div>
+<div id="navigation-help" class="navigation-help"><span class="fas fa-question-circle"></span></div>
+<div id="navigation-login-logout" class="navigation-login-logout">
+    <button id="navigation-login-logout-button" class="button navigation-login-logout-button" data-locked="<%= locked %>">
+        <%= locked ? 'Login' : 'Logout' %>
+    </button>
+</div>
