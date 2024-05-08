@@ -1,0 +1,15 @@
+# basic js installations
+package-lock.json
+/node_modules/
+/in-progress/
+.env*
+.vscode/
+.personal/
+__*/ # ignore all folders starting with an underscore
+.hintrc
+.uploads
+.tmp
+.DS_Store
+.code-workspace
+.postman
+postman
