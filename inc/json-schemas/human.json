@@ -1,0 +1,71 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"$id": "mylife-services-human-json-schema",
+	"required": ["id", "mbr_id", "being", "language", "agent"],
+	"type": "object",
+	"name": "Human",
+	"properties": {
+		"id": {
+			"description": "uuid of the human member",
+			"type": "string",
+			"format": "uuid"
+		},
+		"mbr_id": {
+			"type": "string",
+			"pattern": "^[\\p{L}\\p{M}\\p{N}\\p{P}\\p{S}&&[^|\\t\\n\\r\\f\\v\\b\\s]]{1,64}\\|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+			"description": "root member id: [sysName|id]",
+			"$comment": "also prtitionId for container; NOTE: sysName should not render down to any boolean version of false"
+		},
+		"parent_id": {"type": "string", "format": "uuid", "$comment": "chat must be at least attached to member core"},
+		"being": {
+			"type": "string",
+			"const": "core",
+			"description": "root constructor for human being in MyLife"
+		},
+		"birthdate": {
+			"type": "string",
+			"format": "date"
+		},
+		"bio": {
+			"type": "string",
+			"description": "human member biography"
+		},
+		"default_agent": {
+			"type": "string",
+			"format": "uuid",
+			"description": "uuid of the agent representing this human member",
+			"$comment": "could later scale to array? Why not?"
+		},
+		"form": {
+			"type": "string",
+			"const": "human"
+		},
+		"language": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "string",
+				"maximum": 16,
+				"default": "eng",
+				"enum": ["eng","deu","dan","spa","fra","ita","jpn","kor","nld","por","rus","swe","zho"],
+				"$comment": "ISO 639-2T language codes"
+			},
+			"$comment": "uses ISO 639-2 for list of languages in array order of preference"
+		},
+		"names": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"maximum": 64,
+				"minimum": 1,
+				"description": "human member name"
+			},
+			"uniqueItems": true,
+			"minItems": 1,
+			"maxItems": 10,
+			"description": "array of potential name references for this human member; transition to array of name schemas",
+			"$comment": "artificial cap on names for now @10x"
+		}
+	},
+	"additionalProperties": true
+}

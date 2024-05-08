@@ -1,0 +1,1 @@
+//	functionality transferred to Factory object for now, as that was all the globals were being used for

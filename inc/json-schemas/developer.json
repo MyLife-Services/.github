@@ -1,0 +1,37 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"$id": "mylife-services-developer-json-schema",
+	"$comment": "currently only a placeholder cross-reference between object and developer member account",
+	"required": ["id", "mbr_id", "being","public"],
+	"type": "object",
+	"name": "Developer",
+	"properties": {
+		"id": {
+			"description": "uuid of developer",
+			"type": "string",
+			"format": "uuid",
+			"$comment": "reference to developer in the system, not the same as the mbr_id, level of abstraction"
+		},
+		"mbr_id": {
+			"type": "string",
+			"pattern": "^[\\p{L}\\p{M}\\p{N}\\p{P}\\p{S}&&[^|\\t\\n\\r\\f\\v\\b\\s]]{1,64}\\|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+			"description": "unique root member id: [sysName|id]",
+			"$comment": "also partitionId for container; NOTE: sysName should not render down to any boolean version of false"
+		},
+		"parent_id": {
+			"type": "string",
+			"format": "uuid",
+			"description": "parent id of developer, most likely organization or human core id",
+			"$comment": "parent id of feedback, chatSnippetId which will be found in the dialog log (or archive? No, exchanges with unaddressed feedback might not be archived) for this mbr_id"
+		},
+		"being": {
+			"type": "string",
+			"const": "developer"
+		},
+		"public": {
+			"type": "boolean",
+			"const": true
+		}
+	},
+	"additionalProperties": true
+}
